@@ -15,8 +15,7 @@ class AverageColorTests: XCTestCase {
     
     /// It should compute a green average color for a green image.
     func testGreenImage() throws {
-        let bundle = Bundle(for: type(of: self))
-        let image = UIImage(named: "Green_Square.jpg", in: bundle, compatibleWith: nil)!
+		let image = UIImage(named: "Green_Square.jpg", in: .module, compatibleWith: nil)!
         let averageColor = try image.averageColor()
         
         let distance = averageColor.difference(from: UIColor.green)
@@ -25,8 +24,7 @@ class AverageColorTests: XCTestCase {
     
     /// It should compute a purple average color for a purple image.
     func testPurpleImage() throws {
-        let bundle = Bundle(for: type(of: self))
-        let image = UIImage(named: "Purple_Square.jpg", in: bundle, compatibleWith: nil)!
+		let image = UIImage(named: "Purple_Square.jpg", in: .module, compatibleWith: nil)!
         let averageColor = try image.averageColor()
         
         let expectedPurple = UIColor(red: 208.0 / 255.0, green: 0.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0)
@@ -36,8 +34,7 @@ class AverageColorTests: XCTestCase {
     
     /// It should compute a gray average color for a black & white image.
     func testBlackWhiteImage() throws {
-        let bundle = Bundle(for: type(of: self))
-        let image = UIImage(named: "Black_White_Square.jpg", in: bundle, compatibleWith: nil)!
+		let image = UIImage(named: "Black_White_Square.jpg", in: .module, compatibleWith: nil)!
         let averageColor = try image.averageColor()
         
         let expectedGray = UIColor(red: 188.0 / 255.0, green: 188.0 / 255.0, blue: 188.0 / 255.0, alpha: 1.0)

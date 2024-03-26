@@ -12,8 +12,7 @@ import XCTest
 class DominantColorsTests: XCTestCase {
     
     func testGreenImage() throws {
-        let bundle = Bundle(for: type(of: self))
-        let image = UIImage(named: "Green_Square.jpg", in: bundle, compatibleWith: nil)!
+        let image = UIImage(named: "Green_Square.jpg", in: .module, compatibleWith: nil)!
         let dominantColors = try image.dominantColorFrequencies(with: .best)
         
         XCTAssertEqual(dominantColors.count, 1)
@@ -26,8 +25,7 @@ class DominantColorsTests: XCTestCase {
     }
     
     func testBlackWhiteImage() throws {
-        let bundle = Bundle(for: type(of: self))
-        let image = UIImage(named: "Black_White_Square.jpg", in: bundle, compatibleWith: nil)!
+        let image = UIImage(named: "Black_White_Square.jpg", in: .module, compatibleWith: nil)!
         let colorFrequencies = try image.dominantColorFrequencies(with: .best)
         let dominantColors = colorFrequencies.map({ $0.color })
 
@@ -41,8 +39,7 @@ class DominantColorsTests: XCTestCase {
     }
     
     func testRedBlueGreenImage() throws {
-        let bundle = Bundle(for: type(of: self))
-        let image = UIImage(named: "Red_Green_Blue.png", in: bundle, compatibleWith: nil)!
+        let image = UIImage(named: "Red_Green_Blue.png", in: .module, compatibleWith: nil)!
         let colorFrequencies = try image.dominantColorFrequencies(with: .best)
         let dominantColors = colorFrequencies.map({ $0.color })
 
@@ -54,8 +51,7 @@ class DominantColorsTests: XCTestCase {
     }
     
     func testRedBlueGreenBlack() throws {
-        let bundle = Bundle(for: type(of: self))
-        let image = UIImage(named: "Red_Green_Blue_Black_Mini.png", in: bundle, compatibleWith: nil)!
+        let image = UIImage(named: "Red_Green_Blue_Black_Mini.png", in: .module, compatibleWith: nil)!
         let colorFrequencies = try image.dominantColorFrequencies(with: .best)
         let dominantColors = colorFrequencies.map({ $0.color })
 
@@ -68,8 +64,7 @@ class DominantColorsTests: XCTestCase {
     }
     
     func testRedBlueGreenRandom() throws {
-        let bundle = Bundle(for: type(of: self))
-        let image = UIImage(named: "Red_Green_Blue_Random_Mini.png", in: bundle, compatibleWith: nil)!
+        let image = UIImage(named: "Red_Green_Blue_Random_Mini.png", in: .module, compatibleWith: nil)!
         let colorFrequencies = try image.dominantColorFrequencies(with: .best)
         let dominantColors = colorFrequencies.map({ $0.color })
         
